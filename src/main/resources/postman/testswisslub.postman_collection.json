@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "1599b806-8302-4bdb-ba1b-e2ae9b3583d4",
+		"name": "testswisslub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22564507"
+	},
+	"item": [
+		{
+			"name": "detalle",
+			"item": [
+				{
+					"name": "Crear Detalle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemCodigo\": \"ITEM-01\",\r\n    \"cantidadEnviada\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movimiento-detalles"
+					},
+					"response": []
+				},
+				{
+					"name": "GetDetalles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimiento-detalles"
+					},
+					"response": []
+				},
+				{
+					"name": "GetDetalleByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimiento-detalles/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "GetDetByIdMovimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimiento-detalles/movimiento/{id_movimiento}"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Detalle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemCodigo\": \"ITEM-01\",\r\n    \"cantidadEnviada\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movimiento-detalles/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Detalle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/movimiento-detalles/{id}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movimiento",
+			"item": [
+				{
+					"name": "Crear Movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idEmpresa\": 1001,\r\n    \"descripcion\": \"Movimiento de prueba1\",\r\n    \"bodegaOrigenCodigo\": \"BOD-01\",\r\n    \"bodegaDestinoCodigo\": \"BOD-02\",\r\n    \"fechaCreacion\": \"2023-08-13T10:00:00\",\r\n    \"fechaEntrega\": \"2023-08-14T15:00:00\",\r\n    \"estado\": \"P\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "CrearMovConDetalles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpresa\": 1002,\r\n  \"descripcion\": \"Movimiento de prueba\",\r\n  \"bodegaOrigenCodigo\": \"BOD-01\",\r\n  \"bodegaDestinoCodigo\": \"BOD-02\",\r\n  \"fechaCreacion\": \"2023-08-13T00:00:00Z\",\r\n  \"fechaEntrega\": \"2023-08-15T00:00:00Z\",\r\n  \"estado\": \"P\",\r\n  \"detalles\": [\r\n    {\r\n      \"itemCodigo\": \"ITEM-01\",\r\n      \"cantidadEnviada\": 10\r\n    },\r\n    {\r\n      \"itemCodigo\": \"ITEM-02\",\r\n      \"cantidadEnviada\": 5\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movimientos/crear-con-detalles"
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimientos/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "GetMovByState",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/movimientos/estado/{state}"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Movimiento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Movimiento actualizado\",\r\n    \"bodegaOrigenCodigo\": \"BOD-03\",\r\n    \"bodegaDestinoCodigo\": \"BOD-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movimientos/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Movimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/movimientos/{id}"
+					},
+					"response": []
+				}
+			],
+			"description": "Servicio Movimientos"
+		}
+	]
+}
